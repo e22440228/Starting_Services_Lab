@@ -1,5 +1,6 @@
 package edu.temple.startingservices
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
@@ -26,8 +27,11 @@ class MainActivity : AppCompatActivity() {
                 Log.i("MainActivity", "Invalid input: '$text'")
                 input.error = "Please enter a non-negative number"
                 return@setOnClickListener
-
             }
+            val intent = Intent(this, ConutDownServerice::class.java)
+                .putExtra(ConutDownServerice.EXTRA_SECONDS, seconds)
+            startService(intent)
+
         }
 
     }
